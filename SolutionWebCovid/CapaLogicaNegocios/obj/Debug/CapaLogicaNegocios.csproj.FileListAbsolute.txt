@@ -13,3 +13,8 @@ C:\WebAPP-SeguimientoCovid\SolutionWebCovid\CapaLogicaNegocios\obj\Debug\CapaLog
 C:\WebAPPSeguimientoCovid\WebAPP-SeguimientoCovid\SolutionWebCovid\CapaLogicaNegocios\bin\Debug\CapaAccesoDatos.dll
 C:\WebAPPSeguimientoCovid\WebAPP-SeguimientoCovid\SolutionWebCovid\CapaLogicaNegocios\bin\Debug\CapaAccesoDatos.pdb
 C:\WebAPPSeguimientoCovid\WebAPP-SeguimientoCovid\SolutionWebCovid\CapaLogicaNegocios\obj\Debug\CapaLogicaNegocios.csproj.CopyComplete
+C:\WebAPP-SeguimientoCovid\SolutionWebCovid\CapaLogicaNegocios\bin\Debug\CapaAccesoDatos.dll
+C:\WebAPP-SeguimientoCovid\SolutionWebCovid\CapaLogicaNegocios\bin\Debug\CapaEntidades.dll
+C:\WebAPP-SeguimientoCovid\SolutionWebCovid\CapaLogicaNegocios\bin\Debug\CapaAccesoDatos.pdb
+C:\WebAPP-SeguimientoCovid\SolutionWebCovid\CapaLogicaNegocios\bin\Debug\CapaEntidades.pdb
+C:\WebAPP-SeguimientoCovid\SolutionWebCovid\CapaLogicaNegocios\obj\Debug\CapaLogicaNegocios.csproj.CopyComplete

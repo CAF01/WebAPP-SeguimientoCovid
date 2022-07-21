@@ -1,4 +1,6 @@
 ﻿using CapaAccesoDatos;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace CapaLogicaNegocios
 {
@@ -27,7 +29,5 @@ namespace CapaLogicaNegocios
         //    SqlParameter[] sqlParameters = null;
         //    return this.AccesoDatosSql.ConsultaDS(querySql, sqlParameters, ref msg);
         //}
-
-
     }
 }
