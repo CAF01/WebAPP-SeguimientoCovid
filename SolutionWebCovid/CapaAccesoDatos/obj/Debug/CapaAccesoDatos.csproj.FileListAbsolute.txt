@@ -1,0 +1,6 @@
+C:\WebAPPSeguimientoCovid\WebAPP-SeguimientoCovid\SolutionWebCovid\CapaAccesoDatos\bin\Debug\CapaAccesoDatos.dll
+C:\WebAPPSeguimientoCovid\WebAPP-SeguimientoCovid\SolutionWebCovid\CapaAccesoDatos\bin\Debug\CapaAccesoDatos.pdb
+C:\WebAPPSeguimientoCovid\WebAPP-SeguimientoCovid\SolutionWebCovid\CapaAccesoDatos\obj\Debug\CapaAccesoDatos.csproj.AssemblyReference.cache
+C:\WebAPPSeguimientoCovid\WebAPP-SeguimientoCovid\SolutionWebCovid\CapaAccesoDatos\obj\Debug\CapaAccesoDatos.csproj.CoreCompileInputs.cache
+C:\WebAPPSeguimientoCovid\WebAPP-SeguimientoCovid\SolutionWebCovid\CapaAccesoDatos\obj\Debug\CapaAccesoDatos.dll
+C:\WebAPPSeguimientoCovid\WebAPP-SeguimientoCovid\SolutionWebCovid\CapaAccesoDatos\obj\Debug\CapaAccesoDatos.pdb
