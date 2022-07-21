@@ -1,0 +1,6 @@
+C:\WebAPPSeguimientoCovid\WebAPP-SeguimientoCovid\SolutionWebCovid\CapaLogicaNegocios\bin\Debug\CapaLogicaNegocios.dll
+C:\WebAPPSeguimientoCovid\WebAPP-SeguimientoCovid\SolutionWebCovid\CapaLogicaNegocios\bin\Debug\CapaLogicaNegocios.pdb
+C:\WebAPPSeguimientoCovid\WebAPP-SeguimientoCovid\SolutionWebCovid\CapaLogicaNegocios\obj\Debug\CapaLogicaNegocios.csproj.AssemblyReference.cache
+C:\WebAPPSeguimientoCovid\WebAPP-SeguimientoCovid\SolutionWebCovid\CapaLogicaNegocios\obj\Debug\CapaLogicaNegocios.csproj.CoreCompileInputs.cache
+C:\WebAPPSeguimientoCovid\WebAPP-SeguimientoCovid\SolutionWebCovid\CapaLogicaNegocios\obj\Debug\CapaLogicaNegocios.dll
+C:\WebAPPSeguimientoCovid\WebAPP-SeguimientoCovid\SolutionWebCovid\CapaLogicaNegocios\obj\Debug\CapaLogicaNegocios.pdb
