@@ -8,16 +8,16 @@ namespace CapaEntidades
 {
     public class Alumno
     {
-        public int id = 0;
-        public string matricula = "";
-        public string nombre = "";
-        public string apPat = "";
-        public string apMat = "";
-        public string genero = "";
-        public string correo = "";
-        public string celular = "";
-        public int edoCivil = 0;
-        public int nivel = 0;
+        public int id { get; set; }
+        public string matricula { get; set; }
+        public string nombre { get; set;}
+        public string apPat { get; set; }
+        public string apMat { get; set; }
+        public string genero { get; set; }
+        public string correo { get; set; }
+        public string celular { get; set; }
+        public int edoCivil { get; set; }
+        public int nivel { get; set; }
 
         public string datosAlumno()
         {
