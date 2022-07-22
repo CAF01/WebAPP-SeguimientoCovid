@@ -9,7 +9,7 @@ namespace CapaLogicaNegocios
 {
     public class LogicaNegociosAlumno
     {
-        private AccesoDatos AccesoDatosSql = null;
+        private AccesoDatos AccesoDatosSql = null; //objeto acceso a datos
         public LogicaNegociosAlumno(string Cad1)
         {
             this.AccesoDatosSql = new AccesoDatos(Cad1);
