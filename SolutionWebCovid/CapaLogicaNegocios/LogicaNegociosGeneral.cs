@@ -1,11 +1,13 @@
 ﻿using CapaAccesoDatos;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace CapaLogicaNegocios
 {
-    public class LogicaNegocios
+    public class LogicaNegociosGeneral
     {
         private AccesoDatos AccesoDatosSql = null;
-        public LogicaNegocios(string Cad1, string Cad2)
+        public LogicaNegociosGeneral(string Cad1, string Cad2)
         {
             this.AccesoDatosSql = new AccesoDatos(Cad2);
         }
@@ -27,7 +29,5 @@ namespace CapaLogicaNegocios
         //    SqlParameter[] sqlParameters = null;
         //    return this.AccesoDatosSql.ConsultaDS(querySql, sqlParameters, ref msg);
         //}
-
-
     }
 }
