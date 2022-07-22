@@ -43,8 +43,14 @@
   <ItemGroup>
     <Compile Include="Alumno.cs" />
     <Compile Include="Cuatrimestre.cs" />
+    <Compile Include="EstadoCivil.cs" />
     <Compile Include="GrupoCuatrimestre.cs" />
+    <Compile Include="Incapacidad.cs" />
+    <Compile Include="PositivoProfe.cs" />
+    <Compile Include="ProfeGrupo.cs" />
+    <Compile Include="Profesor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SeguimientoProfesor.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
