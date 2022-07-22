@@ -42,12 +42,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LogicaNegocios.cs" />
+    <Compile Include="LogicaNegociosProfesor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CapaAccesoDatos\CapaAccesoDatos.csproj">
       <Project>{4FE9A463-7908-426F-82E6-B36A951370D0}</Project>
       <Name>CapaAccesoDatos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CapaEntidades\CapaEntidades.csproj">
+      <Project>{14FF26C0-6133-4AD1-8881-9229A5305728}</Project>
+      <Name>CapaEntidades</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
