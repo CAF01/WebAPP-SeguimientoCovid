@@ -247,34 +247,6 @@ namespace CapaLogicaNegocios
 
         }
 
-        //public List<PositivoProfe> BuscarCasosPositivoDeProfesor(int idProfe)
-        //{
-        //    Profesor profesor = null;
-        //    string querySql = "SELECT * FROM PositivoProfe WHERE RegistroEmpleado=@id";
-        //    SqlParameter[] sqlParameters = new SqlParameter[]
-        //    {
-        //        new SqlParameter("id",IdProfesor)
-        //    };
-        //    SqlDataReader reader = this.AccesoDatosSql.ConsultarReader(querySql, sqlParameters, ref querySql);
-        //    if (reader != null && reader.HasRows)
-        //    {
-        //        profesor = new Profesor();
-        //        profesor.ID_Profe = (int)reader[0];
-        //        profesor.RegistroEmpleado = (int)reader[1];
-        //        profesor.Nombre = (string)reader[2];
-        //        profesor.ap_pat = (string)reader[3];
-        //        profesor.ap_mat = (string)reader[4];
-        //        profesor.Genero = (string)reader[5];
-        //        profesor.Categoria = (string)reader[6];
-        //        profesor.Correo = (string)reader[7];
-        //        profesor.Celular = (string)reader[8];
-        //        profesor.F_EdoCivil = (int)reader[9];
-        //    }
-        //    return profesor;
-        //}
-
-
-
         /* Métodos para SeguimientoProfesor */
 
         public bool AgregarSeguimientoCaso(SeguimientoProfesor seguimientoProfesor)
@@ -353,5 +325,147 @@ namespace CapaLogicaNegocios
             return list;
 
         }
+
+
+
+        // Mostrar todos los profesores contagiados de un programa educativo en un cuatrimestre 
+        //especifico
+        public List<FiltroProgramaPeriodo> MostrarContagiadosPorFiltroCuatrimestre(Cuatrimestre cuatrimestre)
+        {
+            List<FiltroProgramaPeriodo> list = null;
+            string querySql = "SELECT Pr.ProgramaEd,C.id_Cuatrimestre,C.Periodo,C.Anio,P.RegistroEmpleado,(P.Nombre +' '+P.Ap_pat +' '+ Ap_mat) as Profesor," +
+                "Pos.Id_posProfe,Pos.FechaConfirmado FROM GrupoCuatrimestre GC " +
+                "INNER JOIN Cuatrimestre C ON C.id_Cuatrimestre = GC.F_Cuatri " +
+                "INNER JOIN ProgramaEducativo Pr ON Pr.Id_pe = GC.F_ProgEd INNER JOIN ProfeGRupo PG ON PG.F_GruCuat = GC.Id_GruCuat " +
+                "INNER JOIN Profesor P ON P.ID_Profe = PG.F_Profe INNER JOIN PositivoProfe Pos ON Pos.F_Profe = P.ID_Profe " +
+                "WHERE Pos.FechaConfirmado BETWEEN @start AND @end"; 
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+                new SqlParameter("start",cuatrimestre.fechaInicio),
+                new SqlParameter("end",cuatrimestre.fechaFin)
+            };
+            SqlDataReader sqlDataReader = this.AccesoDatosSql.ConsultarReader(querySql, sqlParameters, ref querySql);
+
+            if (sqlDataReader != null && sqlDataReader.HasRows)
+            {
+                list = new List<FiltroProgramaPeriodo>();
+                while (sqlDataReader.Read())
+                {
+                    list.Add(new FiltroProgramaPeriodo()
+                    {
+                        ProgramaEd = sqlDataReader.GetString(0),
+                        id_Cuatrimestre= sqlDataReader.GetInt32(1),
+                        Periodo = sqlDataReader.GetString(2),
+                        Anio = sqlDataReader.GetString(3),
+                        RegistroEmpleado= sqlDataReader.GetInt32(4),
+                        Profesor = sqlDataReader.GetString(5),
+                        Id_posProfe = sqlDataReader.GetInt32(6),
+                        FechaConfirmado = sqlDataReader.GetDateTime(7)
+                    });
+                }
+            }
+            return list;
+
+        }
+
+        //Mostrar los contagios de un profesor
+        public List<PositivoProfe> BuscarCasosPositivoDeProfesor(int idProfe, int RegistroEmpleado)
+        {
+            List<PositivoProfe> list = null;
+            string querySql = "SELECT * FROM PositivoProfe WHERE RegistroEmpleado=@RegistroEmpleado OR F_Profe=@id";
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+                new SqlParameter("RegistroEmpleado",RegistroEmpleado),
+                new SqlParameter("id",idProfe)
+            };
+            SqlDataReader reader = this.AccesoDatosSql.ConsultarReader(querySql, sqlParameters, ref querySql);
+            if (reader != null && reader.HasRows)
+            {
+                list = new List<PositivoProfe>();
+                while(reader.Read())
+                {
+                    list.Add(new PositivoProfe()
+                    {
+                        Id_posProfe = reader.GetInt32(0),
+                        FechaConfirmado = reader.GetDateTime(1),
+                        Comprobacion = reader.GetString(2),
+                        Antecedentes = reader.GetString(3),
+                        NumContagio = reader.GetInt32(4),
+                        Extra = reader.GetString(5),
+                        F_Profe = reader.GetInt32(6),
+                        Riesgo = reader.GetString(7)
+                    });
+                }
+            }
+            return list;
+        }
+
+        //Periodos incapacidad por caso Positivo
+        public List<Incapacidad> MostrarPeriodosIncapacidadPorCaso(int idPositivo)
+        {
+            List<Incapacidad> list = null;
+            string querySql = "SELECT * FROM Incapacidad WHERE id_posProfe=@id";
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+                new SqlParameter("id",idPositivo)
+            };
+            SqlDataReader reader = this.AccesoDatosSql.ConsultarReader(querySql, sqlParameters, ref querySql);
+            if (reader != null && reader.HasRows)
+            {
+                list = new List<Incapacidad>();
+                while (reader.Read())
+                {
+                    list.Add(new Incapacidad()
+                    {
+                        id_Incapacidad = reader.GetInt32(0),
+                        Fecha_otorga=reader.GetDateTime(1),
+                        Fecha_finalizacion=reader.GetDateTime(2),
+                        IncapacidadUrl=reader.GetString(3),
+                        id_posProfe=idPositivo
+                    });
+                }
+            }
+            return list;
+        }
+
+        //Seguimientos por caso Positivo
+        public List<FiltroSeguimientoProfesor> MostrarSeguimientosPorCaso(int idPositivo)
+        {
+            List<FiltroSeguimientoProfesor> list = null;
+            string querySql = "SELECT S.id_Segui,(M.Nombre + ' ' + M.App + ' ' + M.Apm) as Doc, " +
+                "M.telefono, M.correo, S.Fecha, S.Form_Comunica,S.Reporte,S.Entrevista,S.Extra " +
+                "FROM SeguimientoPRO S " +
+                "INNER JOIN Medico M ON M.ID_Dr = S.F_medico " +
+                "WHERE S.F_positivoProfe = @id";
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+                new SqlParameter("id",idPositivo)
+            };
+            SqlDataReader reader = this.AccesoDatosSql.ConsultarReader(querySql, sqlParameters, ref querySql);
+            if (reader != null && reader.HasRows)
+            {
+                list = new List<FiltroSeguimientoProfesor>();
+                while (reader.Read())
+                {
+                    list.Add(new FiltroSeguimientoProfesor()
+                    {
+                        id_Segui=reader.GetInt32(0),
+                        Doctor=reader.GetString(1),
+                        telefono=reader.GetString(2),
+                        correo=reader.GetString(3),
+                        FechaSeguimiento=reader.GetDateTime(4),
+                        FormComunica=reader.GetString(5),
+                        Reporte=reader.GetString(6),
+                        Entrevista=reader.GetString(7),
+                        Extra=reader.GetString(8)
+                    });
+                }
+            }
+            return list;
+        }
+
+
+
+
     }
 }
