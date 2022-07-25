@@ -1,6 +1,0 @@
-C:\WebAPP-SeguimientoCovid\SolutionWebCovid\CapaEntidades\bin\Debug\CapaEntidades.dll
-C:\WebAPP-SeguimientoCovid\SolutionWebCovid\CapaEntidades\bin\Debug\CapaEntidades.pdb
-C:\WebAPP-SeguimientoCovid\SolutionWebCovid\CapaEntidades\obj\Debug\CapaEntidades.csproj.AssemblyReference.cache
-C:\WebAPP-SeguimientoCovid\SolutionWebCovid\CapaEntidades\obj\Debug\CapaEntidades.csproj.CoreCompileInputs.cache
-C:\WebAPP-SeguimientoCovid\SolutionWebCovid\CapaEntidades\obj\Debug\CapaEntidades.dll
-C:\WebAPP-SeguimientoCovid\SolutionWebCovid\CapaEntidades\obj\Debug\CapaEntidades.pdb
