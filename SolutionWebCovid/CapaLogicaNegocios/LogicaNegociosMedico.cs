@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using CapaAccesoDatos;
 using System.Data;
 using System.Data.SqlClient;
+using CapaAccesoDatos;
 using CapaEntidades;
 
 namespace CapaLogicaNegocios
